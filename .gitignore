@@ -1,0 +1,16 @@
+# Icarus Verilog compiled simulation binaries
+*.out
+*.vvp
+alu_sim
+
+# Waveform dump files
+*.vcd
+
+# Quartus build directories and reports (for later)
+db/
+incremental_db/
+output_files/
+*.rpt
+*.summary
+*.sof
+*.pof
