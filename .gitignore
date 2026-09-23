@@ -3,6 +3,12 @@
 *.vvp
 alu_sim
 
+# Ignore Icarus Verilog compiled executables
+*_sim
+
+# Ignore GTKWave waveform files
+*.vcd
+
 # Waveform dump files
 *.vcd
 
