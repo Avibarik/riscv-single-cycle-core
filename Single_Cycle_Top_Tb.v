@@ -23,11 +23,11 @@ module Single_Cycle_Top_Tb ();
         rst = 1'b0;     // Assert active-low reset
 
         // Hold reset for 150ns (past the first rising edge at 50ns and falling edge at 100ns)
-        #150;
+        #175;
         rst = 1'b1;     // Release reset, CPU begins execution
 
         // Run CPU for instructions to execute
-        #1000;
+        #800;
 
         $finish;
     end

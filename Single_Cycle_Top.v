@@ -81,7 +81,7 @@ module Single_Cycle_Top(clk,rst);
                             .ResultSrc(ResultSrc),
                             .Branch(),
                             .funct3(RD_Instr[14:12]),
-                            .funct7(RD_Instr[6:0]),
+                            .funct7(RD_Instr[31:25]),   
                             .ALUControl(ALUControl_Top)
     );
 
