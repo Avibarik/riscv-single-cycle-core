@@ -222,7 +222,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 Acknowledgements
 
-This project was built while following a YouTube tutorial on designing a RISC-V single-cycle core, and it is based on the reference design in MERL-DSU/RISCV_Single_Cycle_Core (Copyright 2023 MERL-DSU, licensed under Apache-2.0). The datapath diagram is from that repository.
+This project was built while following a YouTube tutorial series on designing a RISC-V single-cycle core, and it is based on the reference design in MERL-DSU/RISCV_Single_Cycle_Core (Copyright 2023 MERL-DSU, licensed under Apache-2.0). The datapath diagram is from that repository.
 
 Extensions and changes in this repository include the slt instruction, an 8-instruction test program, an updated top-level testbench with a reset-timing fix, and the simulation waveform and documentation.
 
