@@ -27,7 +27,7 @@ module Single_Cycle_Top_Tb ();
         rst = 1'b1;     // Release reset, CPU begins execution
 
         // Run CPU for instructions to execute
-        #850;
+        #1000;
 
         $finish;
     end
