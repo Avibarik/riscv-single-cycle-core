@@ -1,4 +1,4 @@
- module alu(A,B,ALUControl,Result,Z,N,V,C);
+ module ALU(A,B,ALUControl,Result,Z,N,V,C);
     // declaringg inputs
     input [31:0]A,B;
     input [2:0]ALUControl;
@@ -40,14 +40,14 @@
     assign {cout,sum} = A + mux_1 + ALUControl[0];
 
     //Zero Extension
-    assign slt = (31'b000000000000000000000000000000, sum[31]);
+    assign slt = { {31{1'b0}}, sum[31] };
 
     // Designing 4by1 Mux
     assign mux_2 = (ALUControl[2:0] == 3'b000) ? sum:
                    (ALUControl[2:0] == 3'b001) ? sum:
                    (ALUControl[2:0] == 3'b010) ? a_and_b:
                    (ALUControl[2:0] == 3'b011) ? a_or_b:
-                   (ALUControl[2:0] == 3'b101) ? slt:32'h 00000000
+                   (ALUControl[2:0] == 3'b101) ? slt:32'h00000000;
 
     assign Result = mux_2;
 

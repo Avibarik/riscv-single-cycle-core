@@ -10,7 +10,7 @@ module tb_alu;
     wire [31:0] result;
 
     // Instantiate the Unit Under Test (UUT)
-   alu uut (
+   ALU uut (
         .A(a),
         .B(b),
         .ALUControl(alu_control),
