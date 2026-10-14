@@ -214,15 +214,17 @@ The waveform at the top of this README shows this run: the PC steps from `0x00` 
 
 ---
 
-## License
+License
 
-This project is licensed under the **Apache License, Version 2.0**. See the [LICENSE](LICENSE) file for the full text, or visit <http://www.apache.org/licenses/LICENSE-2.0>.
+This project is licensed under the Apache License, Version 2.0, the same license as the reference design it is based on. See the LICENSE file for the full text, or visit http://www.apache.org/licenses/LICENSE-2.0.
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 
-## Acknowledgements
+Acknowledgements
 
-The datapath diagram comes from [MERL-DSU/RISCV_Single_Cycle_Core](https://github.com/merldsu/RISCV_Single_Cycle_Core) (Copyright 2023 MERL-DSU, Apache-2.0), which served as a reference for this project.
+This project was built while following a YouTube tutorial on designing a RISC-V single-cycle core, and it is based on the reference design in MERL-DSU/RISCV_Single_Cycle_Core (Copyright 2023 MERL-DSU, licensed under Apache-2.0). The datapath diagram is from that repository.
+
+Extensions and changes in this repository include the slt instruction, an 8-instruction test program, an updated top-level testbench with a reset-timing fix, and the simulation waveform and documentation.
 
 ---
 
