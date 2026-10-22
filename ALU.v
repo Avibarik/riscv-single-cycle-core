@@ -39,8 +39,8 @@
     //addition / subtraction operation
     assign {cout,sum} = A + mux_1 + ALUControl[0];
 
-    //Zero Extension
-    assign slt = { {31{1'b0}}, sum[31] };
+    //Zero Extension with signed comparison (XOR sign bit with overflow flag)
+    assign slt = { {31{1'b0}}, (sum[31] ^ V) };
 
     // Designing 4by1 Mux
     assign mux_2 = (ALUControl[2:0] == 3'b000) ? sum:

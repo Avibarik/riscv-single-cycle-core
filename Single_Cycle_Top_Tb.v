@@ -27,15 +27,24 @@ module Single_Cycle_Top_Tb ();
         rst = 1'b1;     // Release reset, CPU begins execution
 
         // Run CPU for instructions to execute
-        #800;
+        #1000;
 
         $finish;
     end
 
     // Waveform dump
     initial begin
-        $dumpfile("Single Cycle.vcd");
+        $dumpfile("Single_Cycle.vcd");
         $dumpvars(0, Single_Cycle_Top_Tb);
+    end
+
+    // Instruction execution monitor
+    always @(posedge clk) begin
+        if (rst && Single_Cycle_Top.PC_Top <= 32'h1C) begin
+            $display("Time=%0t | PC=0x%02h | Instr=0x%08h | ALUResult=0x%08h | RegWrite=%b",
+                     $time, Single_Cycle_Top.PC_Top, Single_Cycle_Top.RD_Instr, 
+                     Single_Cycle_Top.ALUResult, Single_Cycle_Top.RegWrite);
+        end
     end
 
 endmodule

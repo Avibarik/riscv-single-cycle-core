@@ -50,7 +50,7 @@ module Single_Cycle_Top(clk,rst);
 
     Sign_Extend Sign_Extend(
                         .In(RD_Instr),
-                        .ImmSrc(ImmSrc[0]),
+                        .ImmSrc(ImmSrc),
                         .Imm_Ext(Imm_Ext_Top)
     );
 
