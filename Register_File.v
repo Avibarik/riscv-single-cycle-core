@@ -1,15 +1,15 @@
 module Register_File(clk,rst,WE3,WD3,A1,A2,A3,RD1,RD2);
 
     input clk,rst,WE3;
-    input [4:0]A1,A2,A3;
-    input [31:0]WD3;
+    input [4:0]A1,A2,A3;// source and destination registers
+    input [31:0]WD3;// result from the mux (storing back into the register)
     output [31:0]RD1,RD2;
 
     reg [31:0] Register [31:0];
 
     always @ (posedge clk)
     begin
-        if (rst && WE3 && (A3 != 5'd0))
+        if (rst && WE3 && (A3 != 5'd0))  // x0  is the zero register (must not be written into) it is fixed 0
             Register[A3] <= WD3;
     end
 

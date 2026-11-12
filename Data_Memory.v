@@ -1,7 +1,7 @@
 module Data_Memory(clk,rst,WE,WD,A,RD);
 
     input clk,rst,WE;
-    input [31:0]A,WD;
+    input [31:0]A,WD;// A IS ALURESULT ; WD IS MEMWRITE
     output [31:0]RD;
 
     reg [31:0] mem [1023:0];  
@@ -17,6 +17,7 @@ module Data_Memory(clk,rst,WE,WD,A,RD);
     initial begin
         mem[28] = 32'h00000020;
         //mem[40] = 32'h00000002;
+        // dummy data for future load insrtuctions!!
     end
 
 

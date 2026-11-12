@@ -1,5 +1,5 @@
  module ALU(A,B,ALUControl,Result,Z,N,V,C);
-    // declaringg inputs
+    // declaring inputs
     input [31:0]A,B;
     input [2:0]ALUControl;
 
@@ -40,7 +40,7 @@
     assign {cout,sum} = A + mux_1 + ALUControl[0];
 
     //Zero Extension with signed comparison (XOR sign bit with overflow flag)
-    assign slt = { {31{1'b0}}, (sum[31] ^ V) };
+    assign slt = { {31{1'b0}}, (sum[31] ^ V) };//  we are doing the xor operation with the overflow flag due to signed overflow problem
 
     // Designing 4by1 Mux
     assign mux_2 = (ALUControl[2:0] == 3'b000) ? sum:
@@ -56,11 +56,13 @@
 
     assign N = Result[31]; // Negative flag  
 
-    assign C = cout &(~ALUControl[1]);  // CARRY FLAG
+    assign C = cout &(~ALUControl[1]);  // CARRY FLAG alu control[1] = 1 means logical opearation so we dont wan carry from that 
 
-    assign V =(~ALUControl[1]) & (A[31] ^ sum[31]) & (~(A[31]^B[31]^ALUControl[0]));  //overflow flag
-
-
+    assign V =(~ALUControl[1]) & (A[31] ^ sum[31]) & (~(A[31]^B[31]^ALUControl[0]));  //overflow flag  ALUControl[0] checks if the operation is add(0) or sub(1)
+    // first term checks if the operation is logical or arithmethic
+    // second term checks sign change
+    // third term checks if the signs of the two numbers were originally same  
+    // term 3 can only be 1 when the signs of a and b are same (overflow condition)
 
 endmodule
     
