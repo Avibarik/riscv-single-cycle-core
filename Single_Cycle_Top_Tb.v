@@ -6,9 +6,13 @@ module Single_Cycle_Top_Tb ();
     reg rst;
 
     // Unit Under Test (UUT)
+    wire [7:0] PC_out, ALUResult_out, WriteData_out;
     Single_Cycle_Top Single_Cycle_Top (
         .clk(clk),
-        .rst(rst)
+        .rst(rst),
+        .PC_out(PC_out),
+        .ALUResult_out(ALUResult_out),
+        .WriteData_out(WriteData_out)
     );
 
     // Clock generator: 100ns period (50ns low, 50ns high)

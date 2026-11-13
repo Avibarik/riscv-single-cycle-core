@@ -8,9 +8,12 @@
 `include "PC_Adder.v"
 `include "Mux.v"
 
-module Single_Cycle_Top(clk,rst);
+module Single_Cycle_Top(clk, rst, PC_out, ALUResult_out, WriteData_out);
 
-    input clk,rst;
+    input clk, rst;
+    output [7:0] PC_out;
+    output [7:0] ALUResult_out;
+    output [7:0] WriteData_out;
 
     wire [31:0] PC_Top,RD_Instr,RD1_Top,Imm_Ext_Top,ALUResult,ReadData,PCPlus4,RD2_Top,SrcB,Result;
     wire RegWrite,MemWrite,ALUSrc,ResultSrc;
@@ -62,11 +65,9 @@ module Single_Cycle_Top(clk,rst);
     );
 
     ALU ALU(
-            .A(RD1_Top),
             .B(SrcB),
             .Result(ALUResult),
             .ALUControl(ALUControl_Top),
-            .V(Overflow),
             .C(Carry),
             .Z(Zero),
             .N(Negative)
@@ -100,5 +101,10 @@ module Single_Cycle_Top(clk,rst);
                             .s(ResultSrc),
                             .c(Result)
     );
+
+    // Assign top-level outputs to keep synthesis from pruning the design
+    assign PC_out = PC_Top[7:0];
+    assign ALUResult_out = ALUResult[7:0];
+    assign WriteData_out = Result[7:0];
 
 endmodule
